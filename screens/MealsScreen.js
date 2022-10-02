@@ -25,7 +25,7 @@ function MealsScreen({ route, navigation }) {
         <FlatList
             data={MEALS.filter((meal) => meal.categoryIds.includes(catId))}
             // or retturn meal.categoryIds.indexOf(catId) >=0
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) =>  item.id+item.title }
             renderItem={renderFlatListItem}
         />
     );
