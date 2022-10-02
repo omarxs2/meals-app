@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     innerText: {
         fontSize: 12,
         textAlign: 'center',
-        color: '#fff'
+        color: '#590b60'
     },
     title: {
         paddingHorizontal: 16,
@@ -153,8 +153,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#fff',
-        borderColor: '#fff',
+        color: '#590b60',
+        borderColor: '#590b60',
         borderWidth: 2,
         borderRadius: 4
     },
@@ -166,13 +166,14 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     listItem: {
-        backgroundColor: '#8aa0b4',
+        backgroundColor: '#590b60',
         margin: 4,
         padding: 4,
         borderRadius: 8,
     },
     listItemText: {
-        textAlign: 'left'
+        textAlign: 'left',
+        color:'#ead9eb'
     },
     listContainer: {
         flex: 1,
