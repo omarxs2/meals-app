@@ -1,21 +1,29 @@
 
 import { useContext, useLayoutEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView,Alert } from 'react-native';
 import MealDetails from '../components/MealDetails';
 import IconButton from '../components/IconButton';
-import { FavoritesContext } from '../store/context/favorite-context';
+import { useSelector, useDispatch } from 'react-redux'
+import { removeFav, addFav } from '../store/redux/favorite'
+// import { FavoritesContext } from '../store/context/favorite-context';
 
 function MealDetailScreen({ route, navigation }) {
-    const favoriteMealsCtx = useContext(FavoritesContext);
+    // const favoriteMealsCtx = useContext(FavoritesContext);
+    const favMeals = useSelector((state) => state.favMeals.ids)
+    const dispach = useDispatch();
+
     const meal = route.params.meal;
-    const mealIsFav = favoriteMealsCtx.ids.includes(meal.id);
+    const mealIsFav = favMeals.includes(meal.id);
 
     const onPressHandler = () => {
         if (mealIsFav) {
-            favoriteMealsCtx.removeFav(meal.id)
+            dispach(removeFav({ id: meal.id }));
+            Alert.alert('Removed from favorites');
         }
         else {
-            favoriteMealsCtx.addFav(meal.id)
+            dispach(addFav({ id: meal.id }));
+            Alert.alert('Added to favorites');
+
         }
     }
 

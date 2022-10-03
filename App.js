@@ -4,13 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { createDrawerNavigator } from '@react-navigation/drawer'
-
 import CategoriesScreen from './screens/CategoriesScreen';
 import MealsScreen from './screens/MealsScreen';
 import MealDetailScreen from './screens/MealDetailsScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
 import FavoriteContextProvider from './store/context/favorite-context';
+import { Provider } from 'react-redux';
+import { store } from './store/redux/store';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,7 +33,7 @@ const BottonTabs = () => {
           tabBarIcon: ({ color, size }) => (
             <Ionicons color={color} size={size} name='star' />
           ),
-          tabBarActiveTintColor:'#590b60'
+          tabBarActiveTintColor: '#590b60'
         }} />
       <Tab.Screen
         name="Home"
@@ -41,7 +42,7 @@ const BottonTabs = () => {
           tabBarIcon: ({ color, size }) => (
             <Ionicons color={color} size={size} name='home' />
           ),
-          tabBarActiveTintColor:'#590b60'
+          tabBarActiveTintColor: '#590b60'
         }} />
 
     </Tab.Navigator>
@@ -61,7 +62,8 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <FavoriteContextProvider>
+      {/* <FavoriteContextProvider> */}
+      <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
@@ -85,7 +87,8 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </FavoriteContextProvider>
+      </Provider>
+      {/* </FavoriteContextProvider> */}
     </>
   );
 }
