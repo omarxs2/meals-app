@@ -91,8 +91,8 @@ function MealItem({ meal, onPress }) {
                             {
                                 meal.ingredients.map((ing, i) => {
                                     return (
-                                        <View style={styles.listItem}>
-                                            <Text style={styles.listItemText} key={i}>{ing}</Text>
+                                        <View key={i} style={styles.listItem}>
+                                            <Text style={styles.listItemText} >{ing}</Text>
                                         </View>
                                     )
                                 })
@@ -105,8 +105,8 @@ function MealItem({ meal, onPress }) {
                             {
                                 meal.steps.map((stp, i) => {
                                     return (
-                                        <View style={styles.listItem}>
-                                            <Text style={styles.listItemText} key={i}>{i + 1}- {stp}</Text>
+                                        <View key={i} style={styles.listItem}>
+                                            <Text style={styles.listItemText} >{i + 1}- {stp}</Text>
                                         </View>
                                     )
                                 })
